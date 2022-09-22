@@ -36,4 +36,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f"{self.first_name.title()} {self.last_name.title()}"
 
     def get_short_name(self):
-        return self.user_name
+        return self.username

@@ -28,7 +28,7 @@ class CustomUserManager(BaseUserManager):
         user = self.model(username=username, first_name=first_name,
                           last_name=last_name, email=email, **extra_fields)
         user.set_password(password)
-        extra_fields.setdefault('is_staff', false)
+        extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
         user.save(using=self._db)
 
