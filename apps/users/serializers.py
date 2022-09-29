@@ -42,8 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.last_name.title()
 
     def to_representation(self, instance):
-        representation = super(
-            UserSerializer, self).to_representation(instance)
+        representation = super(UserSerializer, self).to_representation(instance)
         if instance.is_superuser:
             representation["admin"] = True
         return representation
@@ -52,5 +51,4 @@ class UserSerializer(serializers.ModelSerializer):
 class CreateUserSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ["id", "username", "email",
-                  "first_name", "last_name", "password"]
+        fields = ["id", "username", "email", "first_name", "last_name", "password"]

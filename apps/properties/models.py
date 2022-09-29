@@ -44,8 +44,7 @@ class Property(TimeStampedUUIDModel):
     )
 
     title = models.CharField(verbose_name=_("Property Title"), max_length=250)
-    slug = AutoSlugField(populate_from="title",
-                         unique=True, always_update=True)
+    slug = AutoSlugField(populate_from="title", unique=True, always_update=True)
     ref_code = models.CharField(
         verbose_name=_("Property Reference Code"),
         max_length=255,
@@ -61,8 +60,7 @@ class Property(TimeStampedUUIDModel):
         default="KE",
         blank_label="(select country)",
     )
-    city = models.CharField(verbose_name=_(
-        "City"), max_length=180, default="Nairobi")
+    city = models.CharField(verbose_name=_("City"), max_length=180, default="Nairobi")
     postal_code = models.CharField(
         verbose_name=_("Postal Code"), max_length=100, default="140"
     )
@@ -87,8 +85,7 @@ class Property(TimeStampedUUIDModel):
     plot_area = models.DecimalField(
         verbose_name=_("Plot Area(m^2)"), max_digits=8, decimal_places=2, default=0.0
     )
-    total_floors = models.IntegerField(
-        verbose_name=_("Number of floors"), default=0)
+    total_floors = models.IntegerField(verbose_name=_("Number of floors"), default=0)
     bedrooms = models.IntegerField(verbose_name=_("Bedrooms"), default=1)
     bathrooms = models.DecimalField(
         verbose_name=_("Bathrooms"), max_digits=4, decimal_places=2, default=1.0

@@ -10,9 +10,8 @@ from rest_framework.views import APIView
 from .exceptions import PropertyNotFound
 from .models import Property, PropertyViews
 from .pagination import PropertyPagination
-from .serializers import (PropertyCreateSerializer,
-                          PropertySerializer, PropertyViewSerializer)
-
+from .serializers import (PropertyCreateSerializer, PropertySerializer,
+                          PropertyViewSerializer)
 
 logger = logging.getLogger(__name__)
 
@@ -28,10 +27,8 @@ class PropertyFilter(django_filters.FilterSet):
     )
 
     price = django_filters.NumberFilter()
-    price__gt = django_filters.NumberFilter(
-        field_name="price", lookup_expr="gt")
-    price__lt = django_filters.NumberFilter(
-        field_name="price", lookup_expr="lt")
+    price__gt = django_filters.NumberFilter(field_name="price", lookup_expr="gt")
+    price__lt = django_filters.NumberFilter(field_name="price", lookup_expr="lt")
 
     class Meta:
         model = Property
