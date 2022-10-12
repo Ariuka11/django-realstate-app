@@ -15,11 +15,11 @@ class CustomUserManager(BaseUserManager):
         self, username, first_name, last_name, email, password, **extra_fields
     ):
         if not username:
-            raise ValueError(_("User must submit a username"))
+            raise ValueError(_("Users must submit a username"))
         if not first_name:
-            raise ValueError(_("You must submit a first name"))
+            raise ValueError(_("Users must submit a first name"))
         if not last_name:
-            raise ValueError(_("You must submit a last name"))
+            raise ValueError(_("Users must submit a last name"))
         if email:
             email = self.normalize_email(email)
             self.email_validator(email)
@@ -51,7 +51,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError(_("Superusers must be staff"))
 
         if extra_fields.get("is_superuser") is not True:
-            raise ValueError(_("Superusers must be issuperuser is True"))
+            raise ValueError(_("Superusers must be is_superuser is True"))
 
         if not password:
             raise ValueError(_("Superuser must have a password"))
