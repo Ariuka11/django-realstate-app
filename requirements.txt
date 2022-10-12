@@ -11,3 +11,7 @@ psycopg2>=2.9.3
 flake8>=3.9.2
 black>=21
 isort>=5.9.3
+pytest-django==4.5.2
+pytest-factoryboy==2.5.0
+Faker==15.1.0
+pytest-cov==4.0.0
