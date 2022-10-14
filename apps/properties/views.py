@@ -10,8 +10,11 @@ from rest_framework.views import APIView
 from .exceptions import PropertyNotFound
 from .models import Property, PropertyViews
 from .pagination import PropertyPagination
-from .serializers import (PropertyCreateSerializer, PropertySerializer,
-                          PropertyViewSerializer)
+from .serializers import (
+    PropertyCreateSerializer,
+    PropertySerializer,
+    PropertyViewSerializer,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -122,10 +125,10 @@ def update_property_api_view(request, slug):
 def create_property_api_view(request):
     user = request.user
     data = request.data
-    data["user"] = request.user.pkid
+    data["user"] = user.pkid
     serializer = PropertyCreateSerializer(data=data)
 
-    if serializer.is_valid():
+    if serializer.is_valid(raise_exception=True):
         serializer.save()
         logger.info(
             f"property {serializer.data.get('title')} created by {user.username}"
